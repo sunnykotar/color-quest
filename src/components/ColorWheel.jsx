@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 import React, { useState, useEffect, useRef } from "react";
-=======
-import React, { useState } from "react";
->>>>>>> a603166218eaf0e648579cb8ea244f528a748be5
+
 
 /* ── 12-segment standard wheel ─────────────────────────────────────────
    Segments are evenly spaced visually (each = 30° of arc).
