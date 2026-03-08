@@ -252,7 +252,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
             <div style={{
               height:"100%", borderRadius:99,
               width:`${(qSecs / HARD_SECS) * 100}%`,
-              background: qSecs <= 3 ? "linear-gradient(90deg,#ef4444,#f87171)" : "linear-gradient(90deg,#6366F1,#7C8CFF)",
+              background: qSecs <= 3 ? "linear-gradient(90deg,#ef4444,#f87171)" : "linear-gradient(90deg, #4F7BFF, #6366F1)",
               transition:"width 0.9s linear, background 0.3s",
             }} />
           </div>
@@ -275,7 +275,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
               <div style={{
                 height:"100%", borderRadius:99,
                 width:`${flashPct * 100}%`,
-                background:"linear-gradient(90deg,#6366F1,#a5b4fc)",
+                background:"linear-gradient(90deg, #4F7BFF, #6366F1)",
                 transition:"width 0.08s linear",
               }} />
             </div>
@@ -316,7 +316,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
       {/* Next button */}
       {phase === "answered" && (
         <button className="anim-pop" onClick={handleNext} style={{
-          background:"linear-gradient(135deg,#6366F1,#7C8CFF)", color:"white",
+          background:"linear-gradient(135deg, #4F7BFF, #6366F1)", color:"white",
           fontFamily:"var(--font-display)", fontWeight:700, fontSize:17,
           padding:"13px 0", borderRadius:14, width:"100%",
           boxShadow:"0 6px 24px rgba(99,102,241,0.35)",

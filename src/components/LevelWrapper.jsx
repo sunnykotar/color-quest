@@ -45,7 +45,7 @@ export default function LevelWrapper({
       display:"flex", alignItems:"center", justifyContent:"center",
       padding:24,
       /* slight frosted tint so the bg is still visible behind */
-      background:"rgba(180,220,255,0.18)",
+      background:"rgba(238,246,255,0.25)",
       backdropFilter:"blur(2px)",
     }}>
       <div style={{
@@ -88,7 +88,7 @@ export default function LevelWrapper({
                 display:"flex", gap:10, alignItems:"flex-start",
                 fontSize:14, color:"var(--text)", fontWeight:600,
               }}>
-                <span style={{ color:"#6366F1", flexShrink:0, marginTop:2 }}>✦</span>
+                <span style={{ color:"#4F7BFF", flexShrink:0, marginTop:2 }}>✦</span>
                 {b}
               </li>
             ))}
@@ -97,10 +97,10 @@ export default function LevelWrapper({
 
         {timerSecs > 0 && (
           <div style={{
-            background:"rgba(99,102,241,0.08)",
-            border:"1px solid rgba(99,102,241,0.20)",
+            background:"rgba(79,123,255,0.10)",
+            border:"1px solid rgba(79,123,255,0.22)",
             borderRadius:12, padding:"10px 20px",
-            fontSize:13, fontWeight:700, color:"#6366F1",
+            fontSize:13, fontWeight:700, color:"#4F7BFF",
             display:"flex", gap:8, alignItems:"center",
           }}>
             ⏱ {timerSecs}s per challenge · −10 pts if time runs out
@@ -110,15 +110,15 @@ export default function LevelWrapper({
         <button
           onClick={beginCountdown}
           style={{
-            background:"linear-gradient(135deg,#6366F1,#7C8CFF)", color:"white",
+            background:"linear-gradient(135deg, #4F7BFF, #6366F1)", color:"white",
             fontFamily:"var(--font-display)", fontWeight:700, fontSize:19,
             padding:"14px clamp(24px, 8vw, 52px)", borderRadius:99, cursor:"pointer",
-            boxShadow:"0 8px 28px rgba(99,102,241,0.42)",
+            boxShadow:"0 8px 28px rgba(79,123,255,0.42)",
             transition:"transform 0.15s, box-shadow 0.15s",
             width:"100%", maxWidth:320,
           }}
-          onMouseEnter={e => { e.currentTarget.style.transform="scale(1.05)"; e.currentTarget.style.boxShadow="0 12px 36px rgba(99,102,241,0.52)"; }}
-          onMouseLeave={e => { e.currentTarget.style.transform="scale(1)";    e.currentTarget.style.boxShadow="0 8px 28px rgba(99,102,241,0.42)"; }}
+          onMouseEnter={e => { e.currentTarget.style.transform="scale(1.05)"; e.currentTarget.style.boxShadow="0 12px 36px rgba(79,123,255,0.52)"; }}
+          onMouseLeave={e => { e.currentTarget.style.transform="scale(1)";    e.currentTarget.style.boxShadow="0 8px 28px rgba(79,123,255,0.42)"; }}
         >
           Start Level →
         </button>
@@ -129,13 +129,13 @@ export default function LevelWrapper({
   /* ── Countdown: same full-screen overlay ───────────────────────────── */
   if (phase === "countdown") {
     const label = count > 0 ? String(count) : "GO!";
-    const col   = count === 3 ? "#6366F1" : count === 2 ? "#f59e0b" : "#ef4444";
+    const col   = count === 3 ? "#4F7BFF" : count === 2 ? "#f59e0b" : "#ef4444";
     return (
       <div style={{
         position:"fixed", inset:0, zIndex:50,
         display:"flex", flexDirection:"column",
         alignItems:"center", justifyContent:"center", gap:16,
-        background:"rgba(180,220,255,0.18)",
+        background:"rgba(238,246,255,0.25)",
         backdropFilter:"blur(2px)",
       }}>
         <div key={label} className="anim-count" style={{

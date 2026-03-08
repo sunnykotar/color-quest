@@ -95,7 +95,7 @@ export default function Level4({ onComplete, addPoints, hardMode = false }) {
 
       {done && (
         <button className="anim-pop" onClick={onComplete} style={{
-          background:"linear-gradient(135deg,#6366F1,#7C8CFF)", color:"white",
+          background:"linear-gradient(135deg, #4F7BFF, #6366F1)", color:"white",
           fontFamily:"var(--font-display)", fontWeight:700, fontSize:17,
           padding:"14px 0", borderRadius:14, boxShadow:"0 6px 24px rgba(99,102,241,0.35)", width:"100%",
         }}>Next Level →</button>

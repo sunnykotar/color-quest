@@ -8,7 +8,7 @@ import React, { useState } from "react";
 const MODE_CARDS = [
   {
     idx:0, icon:"🎨", title:"Primary Colors",
-    group:"Foundations", accent:"#6366F1",
+    group:"Foundations", accent:"#4F7BFF",
     desc:"Identify the 3 primary and 3 secondary colors on the wheel.",
   },
   {
@@ -38,7 +38,7 @@ const MODE_CARDS = [
   },
   {
     idx:6, icon:"🕵️", title:"Scheme Detective",
-    group:"Bloom", accent:"#6366F1",
+    group:"Bloom", accent:"#4F7BFF",
     desc:"Identify which color scheme each palette represents.",
   },
   {
@@ -85,8 +85,8 @@ function ModeCard({ card, onStart }) {
         <span style={{
           fontSize: 9, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase",
           padding: "2px 9px", borderRadius: 99,
-          background: card.group === "Bloom" ? "rgba(245,158,11,0.14)" : "rgba(99,102,241,0.10)",
-          color: card.group === "Bloom" ? "#b45309" : "#4f46e5",
+          background: card.group === "Bloom" ? "rgba(245,158,11,0.14)" : "rgba(79,123,255,0.10)",
+          color: card.group === "Bloom" ? "#b45309" : "#4F7BFF",
         }}>
           {card.group}
         </span>
@@ -144,12 +144,12 @@ export default function StartScreen({ onStart, bestScore = 0, hardUnlocked = fal
             width: 38, height: 38, borderRadius: "50%", flexShrink: 0,
             background: "conic-gradient(hsl(0,80%,65%),hsl(60,80%,65%),hsl(120,80%,65%),hsl(180,80%,65%),hsl(240,80%,65%),hsl(300,80%,65%),hsl(360,80%,65%))",
             animation: "spin-slow 8s linear infinite",
-            boxShadow: "0 0 20px rgba(99,102,241,0.22)",
+            boxShadow: "0 0 20px rgba(79,123,255,0.22)",
           }} />
           <div>
             <div style={{
               fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700,
-              background: "linear-gradient(135deg,#6366F1,#7C8CFF 50%,#10b981)",
+              background: "linear-gradient(135deg, #4F7BFF, #6366F1 50%, #06B6D4)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               backgroundClip: "text", lineHeight: 1,
             }}>
@@ -167,18 +167,18 @@ export default function StartScreen({ onStart, bestScore = 0, hardUnlocked = fal
               background: "rgba(255,255,255,0.70)", backdropFilter: "blur(8px)",
               borderRadius: 99, padding: "5px 14px",
               border: "1px solid rgba(255,255,255,0.55)",
-              fontSize: 12, fontWeight: 800, color: "#6366F1",
+              fontSize: 12, fontWeight: 800, color: "#4F7BFF",
               display: "flex", alignItems: "center", gap: 5,
             }}>
               🏆 {bestScore} pts
             </div>
           )}
           <button onClick={() => onStart(0)} style={{
-            background: "linear-gradient(135deg,#6366F1,#7C8CFF)",
+            background: "linear-gradient(135deg, #4F7BFF, #6366F1)",
             color: "white", fontFamily: "var(--font-display)",
             fontWeight: 700, fontSize: 14, padding: "9px 24px",
             borderRadius: 99, cursor: "pointer", border: "none",
-            boxShadow: "0 6px 24px rgba(99,102,241,0.38)",
+            boxShadow: "0 6px 24px rgba(79,123,255,0.38)",
             transition: "transform 0.15s",
           }}
             onMouseEnter={e => e.currentTarget.style.transform = "scale(1.04)"}
@@ -208,7 +208,7 @@ export default function StartScreen({ onStart, bestScore = 0, hardUnlocked = fal
       <div style={{ overflowY: "auto", padding: "16px clamp(12px, 4vw, 40px)" }}>
 
         {/* Foundations */}
-        <SectionDivider label="Foundations" color="#6366F1" bg="rgba(99,102,241,0.10)" />
+        <SectionDivider label="Foundations" color="#4F7BFF" bg="rgba(79,123,255,0.10)" />
         <div className="mode-card-grid" style={{ marginBottom: 20 }}>
           {foundations.map(card => (
             <ModeCard key={card.idx} card={card} onStart={onStart} />

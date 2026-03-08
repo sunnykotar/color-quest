@@ -202,7 +202,7 @@ export default function Level7({ onComplete, addPoints }) {
 
       {result && (
         <button className="anim-pop" onClick={handleNext} style={{
-          background:"linear-gradient(135deg,#6366F1,#7C8CFF)", color:"white",
+          background:"linear-gradient(135deg, #4F7BFF, #6366F1)", color:"white",
           fontFamily:"var(--font-display)", fontWeight:700, fontSize:17,
           padding:"13px 0", borderRadius:14, width:"100%",
           boxShadow:"0 6px 24px rgba(99,102,241,0.35)",

@@ -96,7 +96,7 @@ export default function Level2({ onComplete, addPoints, hardMode = false }) {
           return (
             <div key={i} style={{
               flex:1, height:50, borderRadius:12,
-              background: seg ? `hsl(${seg.hue},85%,55%)` : "#EEF2FF",
+              background: seg ? `hsl(${seg.hue},85%,55%)` : "#EEF6FF",
               border: seg
                 ? isCorrect         ? "2px solid #10b981"
                 : result === "wrong"? "2px solid #ef4444"
@@ -132,7 +132,7 @@ export default function Level2({ onComplete, addPoints, hardMode = false }) {
             style={{
               flex:1, padding:"13px 0", borderRadius:14,
               fontFamily:"var(--font-display)", fontWeight:600, fontSize:16,
-              background: selectedSegs.length < pickN ? "#EEF2FF" : "#6366F1",
+              background: selectedSegs.length < pickN ? "#EEF6FF" : "#6366F1",
               color: selectedSegs.length < pickN ? "var(--text-muted)" : "white",
               opacity: selectedSegs.length < pickN ? 0.5 : 1,
               transition:"all 0.2s",
@@ -142,7 +142,7 @@ export default function Level2({ onComplete, addPoints, hardMode = false }) {
         )}
         {isCorrect && (
           <button className="anim-pop" onClick={onComplete} style={{
-            flex:1, background:"linear-gradient(135deg,#6366F1,#7C8CFF)", color:"white",
+            flex:1, background:"linear-gradient(135deg, #4F7BFF, #6366F1)", color:"white",
             fontFamily:"var(--font-display)", fontWeight:700, fontSize:17, padding:"14px 0",
             borderRadius:14, boxShadow:"0 6px 24px rgba(99,102,241,0.35)",
           }}>Next Level →</button>

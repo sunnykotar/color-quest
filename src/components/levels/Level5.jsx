@@ -213,7 +213,7 @@ export default function Level5({ onComplete, addPoints, hardMode = false }) {
               width:`${pctClose}%`,
               background: success ? "linear-gradient(90deg,#10b981,#34d399)"
                         : isClose  ? "linear-gradient(90deg,#f59e0b,#fbbf24)"
-                        :            "linear-gradient(90deg,#6366F1,#a5b4fc)",
+                        :            "linear-gradient(90deg, #4F7BFF, #6366F1)",
               transition:"width 0.1s ease, background 0.3s",
             }} />
           </div>
@@ -246,7 +246,7 @@ export default function Level5({ onComplete, addPoints, hardMode = false }) {
 
       {success && (
         <button className="anim-pop" onClick={handleNext} style={{
-          background:"linear-gradient(135deg,#6366F1,#7C8CFF)", color:"white",
+          background:"linear-gradient(135deg, #4F7BFF, #6366F1)", color:"white",
           fontFamily:"var(--font-display)", fontWeight:700, fontSize:17,
           padding:"13px 0", borderRadius:14,
           boxShadow:"0 6px 24px rgba(99,102,241,0.35)", width:"100%",

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> a603166218eaf0e648579cb8ea244f528a748be5
 
 /* ── 12-segment standard wheel ─────────────────────────────────────────
    Segments are evenly spaced visually (each = 30° of arc).
@@ -118,6 +122,7 @@ export default function ColorWheel({
   wheel       = WHEEL,
 }) {
   const [hovered, setHovered] = useState(null);
+<<<<<<< HEAD
   const containerRef = useRef(null);
   const [resolvedSize, setResolvedSize] = useState(size);
 
@@ -143,14 +148,28 @@ export default function ColorWheel({
   const is24     = totalSegments > 12;
   /* Font scales down for 24 segments so labels fit in narrower slices */
   const fontSize = is24 ? S * 0.024 : S * 0.036;
+=======
+
+  const totalSegments = wheel.length;
+  const R        = size * 0.46;
+  const capR     = size * 0.068;
+  const stepDeg  = 360 / totalSegments;
+  const is24     = totalSegments > 12;
+  /* Font scales down for 24 segments so labels fit in narrower slices */
+  const fontSize = is24 ? size * 0.024 : size * 0.036;
+>>>>>>> a603166218eaf0e648579cb8ea244f528a748be5
 
   return (
     /* Outer div is a plain flex-centred box — NOT a .wheel-container
        because GameLayout's right column already provides that class. */
+<<<<<<< HEAD
     <div
       ref={containerRef}
       style={{ position:"relative", flexShrink:0, display:"inline-flex", alignItems:"center", justifyContent:"center" }}
     >
+=======
+    <div style={{ position:"relative", flexShrink:0, display:"inline-flex", alignItems:"center", justifyContent:"center" }}>
+>>>>>>> a603166218eaf0e648579cb8ea244f528a748be5
 
       {/* Subtle radial glow behind the wheel */}
       <div style={{
@@ -163,9 +182,15 @@ export default function ColorWheel({
       }} />
 
       <svg
+<<<<<<< HEAD
         width={S}
         height={S}
         viewBox={`${-S / 2} ${-S / 2} ${S} ${S}`}
+=======
+        width={size}
+        height={size}
+        viewBox={`${-size / 2} ${-size / 2} ${size} ${size}`}
+>>>>>>> a603166218eaf0e648579cb8ea244f528a748be5
         style={{ display:"block", overflow:"visible", position:"relative", zIndex:1 }}
       >
         {wheel.map((seg, index) => {

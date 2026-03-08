@@ -54,7 +54,7 @@ export default function Level1({ onComplete, addPoints, hardMode = false }) {
           return (
             <div key={h} style={{
               padding:"5px 12px", borderRadius:99, fontSize:12, fontWeight:700,
-              background: found ? `hsl(${h},72%,52%)` : "#EEF2FF",
+              background: found ? `hsl(${h},72%,52%)` : "#EEF6FF",
               color: found ? "white" : "var(--text-muted)",
               border: found ? `2px solid hsl(${h},80%,68%)` : "2px solid #D7E0FF",
               opacity: locked ? 0.35 : 1, transition:"all 0.3s",
@@ -67,7 +67,7 @@ export default function Level1({ onComplete, addPoints, hardMode = false }) {
       </div>
       {phase === "done" && (
         <button className="anim-pop" onClick={onComplete} style={{
-          background:"linear-gradient(135deg,#6366F1,#7C8CFF)", color:"white",
+          background:"linear-gradient(135deg, #4F7BFF, #6366F1)", color:"white",
           fontFamily:"var(--font-display)", fontWeight:700, fontSize:17,
           padding:"14px 0", borderRadius:14, boxShadow:"0 6px 24px rgba(99,102,241,0.35)", width:"100%",
         }}>Next Level →</button>

@@ -2,17 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap');
 
 :root {
-  --glass:        rgba(255,255,255,0.72);
-  --glass-strong: rgba(255,255,255,0.88);
-  --glass-border: rgba(255,255,255,0.55);
-  --surface2:     rgba(240,244,255,0.60);
-  --border:       rgba(215,224,255,0.65);
-  --text:         #1e1b4b;
-  --text-muted:   #4b5563;
-  --accent:       #6366F1;
-  --accent-h:     #7C8CFF;
-  --accent2:      #f59e0b;
-  --accent3:      #10b981;
+  --glass:        rgba(255,255,255,0.80);
+  --glass-strong: rgba(255,255,255,0.92);
+  --glass-border: rgba(79,123,255,0.18);
+  --surface2:     rgba(238,246,255,0.70);
+  --border:       rgba(79,123,255,0.18);
+  --text:         #1E293B;
+  --text-muted:   #475569;
+  --accent:       #4F7BFF;
+  --accent-h:     #6366F1;
+  --accent2:      #06B6D4;
+  --accent3:      #6366F1;
   --danger:       #ef4444;
   --font-display: "Fredoka", sans-serif;
   --font-body:    "Nunito", sans-serif;
@@ -28,7 +28,7 @@ html, body { width: 100%; min-height: 100vh; }
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(120deg, #a1c4fd, #c2e9fb, #d4fc79, #96e6a1);
+  background: linear-gradient(135deg, #EEF6FF, #4F7BFF, #06B6D4);
   background-size: 400% 400%;
   animation: backgroundFlow 18s ease infinite;
   color: var(--text);
@@ -59,7 +59,7 @@ body {
   background: rgba(255,255,255,0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.50);
+  border-bottom: 1px solid rgba(79,123,255,0.20);
   overflow: hidden;
 }
 
@@ -98,7 +98,7 @@ body {
   -webkit-backdrop-filter: blur(12px);
   border: 1.5px solid var(--glass-border);
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(79,123,255,0.10);
 }
 
 /* ── GameLayout: two-column desktop grid ───────────────────────────── */
@@ -148,7 +148,7 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255,255,255,0.40) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(79,123,255,0.18) 0%, transparent 68%);
   pointer-events: none;
   z-index: 0;
 }
@@ -181,14 +181,14 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%;
   background: white; border: 3px solid var(--accent);
-  box-shadow: 0 2px 8px rgba(99,102,241,0.3); margin-top: -7px; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79,123,255,0.3); margin-top: -7px; cursor: pointer;
 }
 input[type="range"]::-webkit-slider-runnable-track { height: 10px; border-radius: 99px; }
 
 /* ── Animations ─────────────────────────────────────────────────────── */
 @keyframes fadeIn       { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
 @keyframes popIn        { 0%{opacity:0;transform:scale(0.7)} 70%{transform:scale(1.08)} 100%{opacity:1;transform:scale(1)} }
-@keyframes pulse        { 0%,100%{box-shadow:0 0 0 0 rgba(99,102,241,0.4)} 50%{box-shadow:0 0 0 14px rgba(99,102,241,0)} }
+@keyframes pulse        { 0%,100%{box-shadow:0 0 0 0 rgba(79,123,255,0.4)} 50%{box-shadow:0 0 0 14px rgba(79,123,255,0)} }
 @keyframes floatUp      { 0%{opacity:1;transform:translateY(0) scale(1)} 100%{opacity:0;transform:translateY(-60px) scale(1.4)} }
 @keyframes streakBounce { 0%,100%{transform:scale(1)} 50%{transform:scale(1.22)} }
 @keyframes countPop     { 0%{opacity:0;transform:scale(0.4)} 60%{transform:scale(1.15)} 100%{opacity:1;transform:scale(1)} }

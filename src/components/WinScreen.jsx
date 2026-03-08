@@ -2,7 +2,7 @@ import React from "react";
 import { getRank } from "./StatsOverlay.jsx";
 
 const BADGES = [
-  { icon: "🎨", label: "Color Wheel",   color: "#6366F1" },
+  { icon: "🎨", label: "Color Wheel",   color: "#4F7BFF" },
   { icon: "🌊", label: "Analogous",     color: "#10b981" },
   { icon: "⚡", label: "Complementary", color: "#f59e0b" },
   { icon: "🌑", label: "Monochromatic", color: "#8b5cf6" },
@@ -40,7 +40,7 @@ export default function WinScreen({ onRestart, score = 0, best = 0, accuracy = 0
       {/* Score cards */}
       <div style={{ display: "flex", gap: 14, justifyContent: "center" }}>
         {[
-          { label: "Score", value: score, color: "#6366F1" },
+          { label: "Score", value: score, color: "#4F7BFF" },
           { label: "Best",  value: best,  color: score >= best ? "#10b981" : "var(--text-muted)" },
           { label: "Accuracy", value: `${accuracy}%`, color: rank.color },
         ].map(({ label, value, color }) => (
@@ -60,7 +60,7 @@ export default function WinScreen({ onRestart, score = 0, best = 0, accuracy = 0
       <div>
         <h2 style={{
           fontFamily: "var(--font-display)", fontSize: "clamp(22px, 4vw, 32px)", fontWeight: 700,
-          background: "linear-gradient(90deg, #6366F1, #10b981)",
+          background: "linear-gradient(90deg, #4F7BFF, #06B6D4)",
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
           marginBottom: 6,
         }}>Color Theory Complete!</h2>
@@ -85,10 +85,10 @@ export default function WinScreen({ onRestart, score = 0, best = 0, accuracy = 0
 
       <div style={{ display: "flex", gap: 12 }}>
         <button onClick={onRestart} style={{
-          background: "linear-gradient(135deg, #6366F1, #7C8CFF)",
+          background: "linear-gradient(135deg, #4F7BFF, #6366F1)",
           color: "white", fontFamily: "var(--font-display)",
           fontWeight: 700, fontSize: 16, padding: "13px 32px",
-          borderRadius: 99, boxShadow: "0 6px 24px rgba(99,102,241,0.35)",
+          borderRadius: 99, boxShadow: "0 6px 24px rgba(79,123,255,0.35)",
           transition: "transform 0.15s ease",
         }}
           onMouseEnter={e => e.target.style.transform = "scale(1.04)"}

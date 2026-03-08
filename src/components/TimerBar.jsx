@@ -31,7 +31,7 @@ export default function TimerBar({ seconds = 10, onExpire }) {
         <span>⏱ Time remaining</span>
         <span style={{ color: col }}>{secs}s</span>
       </div>
-      <div style={{ height:8, borderRadius:99, background:"#EEF2FF", border:"1px solid #D7E0FF", overflow:"hidden" }}>
+      <div style={{ height:8, borderRadius:99, background:"#EEF6FF", border:"1px solid rgba(79,123,255,0.20)", overflow:"hidden" }}>
         <div style={{
           height:"100%", borderRadius:99,
           width:`${pct}%`,

@@ -183,8 +183,8 @@ export default function App() {
               {FOUNDS.map((l, i) => (
                 <div key={l.id} style={{
                   height:5, flex:1, borderRadius:99,
-                  background: i < levelIdx  ? "#6366F1"
-                            : i === levelIdx ? "linear-gradient(90deg,#6366F1,#7C8CFF)"
+                  background: i < levelIdx  ? "#4F7BFF"
+                            : i === levelIdx ? "linear-gradient(90deg,#4F7BFF,#6366F1)"
                             : "rgba(255,255,255,0.38)",
                   transition:"background 0.4s",
                 }} />
@@ -215,7 +215,7 @@ export default function App() {
               <span className="hud-badge" style={{
                 fontSize:9, fontWeight:800, letterSpacing:"0.07em", textTransform:"uppercase",
                 padding:"1px 7px", borderRadius:99, flexShrink:0,
-                background: current.group === "Bloom" ? "rgba(245,158,11,0.18)" : "rgba(99,102,241,0.12)",
+                background: current.group === "Bloom" ? "rgba(245,158,11,0.18)" : "rgba(79,123,255,0.12)",
                 color: current.group === "Bloom" ? "#b45309" : "#4f46e5",
               }}>
                 {current.group}

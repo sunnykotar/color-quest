@@ -11,10 +11,10 @@ export default function Narrator({ title, text, hint }) {
       {/* Owl avatar */}
       <div style={{
         width: 44, height: 44, borderRadius: "50%",
-        background: "linear-gradient(135deg, #6366F1, #7C8CFF)",
+        background: "linear-gradient(135deg, #4F7BFF, #6366F1)",
         display: "flex", alignItems: "center", justifyContent: "center",
         fontSize: 22, flexShrink: 0,
-        boxShadow: "0 4px 14px rgba(99,102,241,0.35)",
+        boxShadow: "0 4px 14px rgba(79,123,255,0.35)",
       }}>
         🦉
       </div>
@@ -23,7 +23,7 @@ export default function Narrator({ title, text, hint }) {
         <div style={{
           fontFamily: "var(--font-display)",
           fontWeight: 700, fontSize: 15,
-          color: "#6366F1",
+          color: "#4F7BFF",
           marginBottom: 4, letterSpacing: "0.02em",
         }}>
           {title}
@@ -37,10 +37,10 @@ export default function Narrator({ title, text, hint }) {
         </div>
         {hint && (
           <div style={{
-            fontSize: 12.5, color: "#6366F1",
-            borderLeft: "3px solid #6366F1",
+            fontSize: 12.5, color: "#4F7BFF",
+            borderLeft: "3px solid #06B6D4",
             paddingLeft: 10, fontStyle: "italic", lineHeight: 1.5,
-            background: "rgba(99,102,241,0.05)",
+            background: "rgba(6,182,212,0.07)",
             borderRadius: "0 8px 8px 0",
             padding: "4px 10px",
           }}>

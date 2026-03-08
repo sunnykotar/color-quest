@@ -2,7 +2,7 @@ import React from "react";
 
 const RANKS = [
   { min: 0,   label: "Color Rookie",     icon: "🌱", color: "#6b7280" },
-  { min: 60,  label: "Color Apprentice", icon: "🎨", color: "#6366F1" },
+  { min: 60,  label: "Color Apprentice", icon: "🎨", color: "#4F7BFF" },
   { min: 75,  label: "Color Artist",     icon: "🌟", color: "#f59e0b" },
   { min: 90,  label: "Color Master",     icon: "👑", color: "#ef4444" },
 ];
@@ -23,7 +23,7 @@ export default function StatsOverlay({ correct, total, avgTime, onContinue }) {
     <div className="anim-pop" style={{
       position: "absolute", inset: 0, zIndex: 40,
       display: "flex", alignItems: "center", justifyContent: "center",
-      background: "rgba(238,242,255,0.92)",
+      background: "rgba(238,246,255,0.92)",
       backdropFilter: "blur(8px)",
       borderRadius: 20,
     }}>
@@ -47,15 +47,15 @@ export default function StatsOverlay({ correct, total, avgTime, onContinue }) {
 
         <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
           <Stat label="Accuracy" value={`${accuracy}%`} color={rank.color} />
-          {avgTime > 0 && <Stat label="Avg Time" value={`${avgTime.toFixed(1)}s`} color="#6366F1" />}
+          {avgTime > 0 && <Stat label="Avg Time" value={`${avgTime.toFixed(1)}s`} color="#4F7BFF" />}
           <Stat label="Correct" value={`${correct}/${total}`} color="#10b981" />
         </div>
 
         <button onClick={onContinue} style={{
-          background: "linear-gradient(135deg, #6366F1, #7C8CFF)",
+          background: "linear-gradient(135deg, #4F7BFF, #6366F1)",
           color: "white", fontFamily: "var(--font-display)",
           fontWeight: 700, fontSize: 16, padding: "12px 0",
-          borderRadius: 12, boxShadow: "0 4px 16px rgba(99,102,241,0.35)",
+          borderRadius: 12, boxShadow: "0 4px 16px rgba(79,123,255,0.35)",
           width: "100%",
         }}>
           Continue →

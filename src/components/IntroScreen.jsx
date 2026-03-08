@@ -33,7 +33,7 @@ export default function IntroScreen({ onEnter }) {
           width: 80, height: 80, borderRadius: "50%",
           background: "conic-gradient(hsl(0,80%,65%),hsl(60,80%,65%),hsl(120,80%,65%),hsl(180,80%,65%),hsl(240,80%,65%),hsl(300,80%,65%),hsl(360,80%,65%))",
           animation: "spin-slow 7s linear infinite",
-          boxShadow: "0 0 36px rgba(99,102,241,0.28)",
+          boxShadow: "0 0 36px rgba(79,123,255,0.28)",
           flexShrink: 0,
         }} />
 
@@ -43,7 +43,7 @@ export default function IntroScreen({ onEnter }) {
             fontFamily: "var(--font-display)",
             fontSize: "clamp(36px, 6vw, 52px)",
             fontWeight: 700,
-            background: "linear-gradient(135deg,#6366F1 0%,#7C8CFF 45%,#10b981 100%)",
+            background: "linear-gradient(135deg, #4F7BFF 0%, #6366F1 45%, #06B6D4 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -66,9 +66,9 @@ export default function IntroScreen({ onEnter }) {
           {["🎨 9 Levels", "🔺 Triadic", "⚡ Complementary", "🧠 Memory", "💡 RGB Lab"].map((tag, i) => (
             <div key={i} style={{
               padding: "5px 14px", borderRadius: 99,
-              background: "rgba(99,102,241,0.08)",
-              border: "1px solid rgba(99,102,241,0.20)",
-              fontSize: 12, fontWeight: 700, color: "#4f46e5",
+              background: "rgba(79,123,255,0.10)",
+              border: "1px solid rgba(79,123,255,0.22)",
+              fontSize: 12, fontWeight: 700, color: "#4F7BFF",
               animation: `fadeIn 0.5s ease ${i * 0.07}s both`,
             }}>
               {tag}
@@ -83,7 +83,7 @@ export default function IntroScreen({ onEnter }) {
           onMouseLeave={() => setHovered(false)}
           className="anim-pulse"
           style={{
-            background: "linear-gradient(135deg,#6366F1,#7C8CFF)",
+            background: "linear-gradient(135deg, #4F7BFF, #6366F1)",
             color: "white",
             fontFamily: "var(--font-display)",
             fontWeight: 700, fontSize: 21,
@@ -91,8 +91,8 @@ export default function IntroScreen({ onEnter }) {
             borderRadius: 99, cursor: "pointer",
             width: "100%", maxWidth: 320,
             boxShadow: hovered
-              ? "0 14px 44px rgba(99,102,241,0.52)"
-              : "0 8px 32px rgba(99,102,241,0.40)",
+              ? "0 14px 44px rgba(79,123,255,0.52)"
+              : "0 8px 32px rgba(79,123,255,0.40)",
             transform: hovered ? "scale(1.05) translateY(-2px)" : "scale(1)",
             transition: "transform 0.15s ease, box-shadow 0.15s ease",
             border: "none",
