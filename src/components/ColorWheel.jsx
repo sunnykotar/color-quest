@@ -120,33 +120,6 @@ export default function ColorWheel({
   wheel       = WHEEL,
 }) {
   const [hovered, setHovered] = useState(null);
-<<<<<<< HEAD
-  const containerRef = useRef(null);
-  const [resolvedSize, setResolvedSize] = useState(size);
-
-  /* Clamp the wheel size to its container width on resize (mobile). */
-  useEffect(() => {
-    const measure = () => {
-      if (!containerRef.current) return;
-      const available = containerRef.current.parentElement?.clientWidth ?? window.innerWidth;
-      // On mobile leave 28px breathing room; never exceed the prop size
-      const clamped = Math.min(size, Math.max(200, available - 28));
-      setResolvedSize(clamped);
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, [size]);
-
-  const S = resolvedSize;
-  const totalSegments = wheel.length;
-  const R        = S * 0.46;
-  const capR     = S * 0.068;
-  const stepDeg  = 360 / totalSegments;
-  const is24     = totalSegments > 12;
-  /* Font scales down for 24 segments so labels fit in narrower slices */
-  const fontSize = is24 ? S * 0.024 : S * 0.036;
-=======
 
   const totalSegments = wheel.length;
   const R        = size * 0.46;
@@ -155,19 +128,11 @@ export default function ColorWheel({
   const is24     = totalSegments > 12;
   /* Font scales down for 24 segments so labels fit in narrower slices */
   const fontSize = is24 ? size * 0.024 : size * 0.036;
->>>>>>> a603166218eaf0e648579cb8ea244f528a748be5
 
   return (
     /* Outer div is a plain flex-centred box — NOT a .wheel-container
        because GameLayout's right column already provides that class. */
-<<<<<<< HEAD
-    <div
-      ref={containerRef}
-      style={{ position:"relative", flexShrink:0, display:"inline-flex", alignItems:"center", justifyContent:"center" }}
-    >
-=======
     <div style={{ position:"relative", flexShrink:0, display:"inline-flex", alignItems:"center", justifyContent:"center" }}>
->>>>>>> a603166218eaf0e648579cb8ea244f528a748be5
 
       {/* Subtle radial glow behind the wheel */}
       <div style={{
@@ -180,15 +145,9 @@ export default function ColorWheel({
       }} />
 
       <svg
-<<<<<<< HEAD
-        width={S}
-        height={S}
-        viewBox={`${-S / 2} ${-S / 2} ${S} ${S}`}
-=======
         width={size}
         height={size}
         viewBox={`${-size / 2} ${-size / 2} ${size} ${size}`}
->>>>>>> a603166218eaf0e648579cb8ea244f528a748be5
         style={{ display:"block", overflow:"visible", position:"relative", zIndex:1 }}
       >
         {wheel.map((seg, index) => {
