@@ -65,16 +65,16 @@ function ModeCard({ card, onStart }) {
         padding: "18px 20px",
         borderRadius: 20,
         background: hov
-          ? `linear-gradient(135deg,${card.accent}18,${card.accent}0c)`
-          : "rgba(255,255,255,0.97)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        border: `1.5px solid ${hov ? card.accent + "55" : "rgba(79,123,255,0.15)"}`,
+          ? `linear-gradient(135deg, ${card.accent}12, #fff 60%)`
+          : "#ffffff",
+        backdropFilter: "none",
+        WebkitBackdropFilter: "none",
+        border: `1.5px solid ${hov ? card.accent + "66" : "#e2e8f0"}`,
         boxShadow: hov
-          ? `0 10px 36px ${card.accent}22, 0 2px 8px rgba(79,123,255,0.12)`
-          : "0 2px 12px rgba(79,123,255,0.10), 0 1px 3px rgba(0,0,0,0.06)",
+          ? `0 12px 40px ${card.accent}30, 0 4px 12px rgba(0,0,0,0.12)`
+          : "0 4px 16px rgba(0,0,0,0.14), 0 1px 4px rgba(0,0,0,0.08)",
         cursor: "pointer", textAlign: "left",
-        transform: hov ? "translateY(-3px) scale(1.01)" : "none",
+        transform: hov ? "translateY(-4px) scale(1.01)" : "none",
         transition: "all 0.18s ease",
         fontFamily: "var(--font-body)",
         minHeight: 130,

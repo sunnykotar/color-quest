@@ -162,10 +162,10 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
 
   const round = ROUNDS[roundIdx];
 
-  /* ── waiting → flash: show colors for 2 s before countdown begins ── */
+  /* ── waiting → flash: show colors for 3 s before countdown begins ── */
   useEffect(() => {
     if (phase !== "waiting") return;
-    const id = setTimeout(() => setPhase("flash"), 2000);
+    const id = setTimeout(() => setPhase("flash"), 3000);
     return () => clearTimeout(id);
   }, [phase, roundIdx]);
 
@@ -277,7 +277,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
           <>
             <div style={{ fontWeight:800, fontSize:13, color:"#4F7BFF", marginBottom:4 }}>Step 1 of 2 — Memorise!</div>
             <div style={{ fontSize:13, color:"var(--text-muted)", lineHeight:1.6 }}>
-              Study these colors! The countdown starts soon…
+              Study these colors! The countdown starts in 3 seconds…
             </div>
           </>
         )}
@@ -432,7 +432,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
       icon="🧠"
       title="Color Memory Challenge"
       hardMode={hardMode}
-      description="Colors flash for 2 seconds. Then they disappear — and you must name the color scheme from memory!"
+      description="Colors are shown for 3 seconds so you can study them. Then they disappear — name the color scheme from memory!"
       bullets={[
         "Step 1: Watch the colors for 2 seconds",
         "Step 2: Choose the correct color scheme",
