@@ -162,11 +162,22 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
 
   const round = ROUNDS[roundIdx];
 
-  /* ── waiting → flash: show colors for 3 s before countdown begins ── */
+  /* ── waiting → flash ─────────────────────────────────────────────── *
+   * Round 0: wait 1200ms after mount so the "GO!" overlay fully clears
+   *          before the 3s viewing window begins.
+   * Round 1+: wait 500ms (player is already watching).
+   * Total viewing time before flash: 3s either way.
+   * ─────────────────────────────────────────────────────────────────── */
+  const mountDelay = roundIdx === 0 ? 1200 : 500;
   useEffect(() => {
     if (phase !== "waiting") return;
-    const id = setTimeout(() => setPhase("flash"), 3000);
-    return () => clearTimeout(id);
+    // First: wait for the "GO!" overlay to clear, then show colours
+    // Second: after viewing window, kick off the flash countdown
+    const t1 = setTimeout(() => {
+      const t2 = setTimeout(() => setPhase("flash"), 3000);
+      return () => clearTimeout(t2);
+    }, mountDelay);
+    return () => clearTimeout(t1);
   }, [phase, roundIdx]);
 
   /* ── flash countdown via rAF ─────────────────────────────────────── */
@@ -277,7 +288,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
           <>
             <div style={{ fontWeight:800, fontSize:13, color:"#4F7BFF", marginBottom:4 }}>Step 1 of 2 — Memorise!</div>
             <div style={{ fontSize:13, color:"var(--text-muted)", lineHeight:1.6 }}>
-              Study these colors! The countdown starts in 3 seconds…
+              Study these colors — the timer starts automatically in a moment.
             </div>
           </>
         )}
@@ -432,10 +443,11 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
       icon="🧠"
       title="Color Memory Challenge"
       hardMode={hardMode}
-      description="Colors are shown for 3 seconds so you can study them. Then they disappear — name the color scheme from memory!"
+      description="Colors are shown after the countdown. Study them — the 2s timer starts automatically. Then they disappear and you name the scheme!"
       bullets={[
-        "Step 1: Watch the colors for 2 seconds",
-        "Step 2: Choose the correct color scheme",
+        "Step 1: Colors appear — study them",
+        "Step 2: Timer starts automatically after 3s",
+        "Step 3: Choose the correct color scheme",
         "+25 correct · −5 wrong",
         hardMode ? `⏱ Hard mode: ${HARD_SECS}s per question` : "Easy mode: no time pressure",
       ]}
@@ -443,7 +455,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
       <GameLayout
         narratorTitle="Color Memory Challenge"
         narratorText={
-          phase === "waiting"  ? "Study the colors carefully — remember how they relate to each other!" :
+          phase === "waiting"  ? "Study the colors carefully — the timer will start automatically in a moment!" :
           phase === "flash"    ? "Study the colors carefully — remember how they relate to each other!" :
           phase === "hiding"   ? "Hold the image in your mind…" :
           phase === "question" ? "What color scheme did you see? Analogous? Complementary? Triadic? Monochromatic?" :
