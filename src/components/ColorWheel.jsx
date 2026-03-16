@@ -132,8 +132,8 @@ export default function ColorWheel({
   return (
     /* Outer div is a plain flex-centred box — NOT a .wheel-container
        because GameLayout's right column already provides that class. */
-    <div style={{ position:"relative", flexShrink:0, display:"inline-flex", alignItems:"center", justifyContent:"center",
-                  maxWidth:"100%", width: size }}>
+    <div style={{ position:"relative", flexShrink:0, display:"flex", alignItems:"center", justifyContent:"center",
+                  width: size, maxWidth:"100%" }}>
 
       {/* Subtle radial glow behind the wheel */}
       <div style={{
@@ -146,11 +146,9 @@ export default function ColorWheel({
       }} />
 
       <svg
-        width={size}
-        height={size}
         viewBox={`${-size / 2} ${-size / 2} ${size} ${size}`}
         style={{ display:"block", overflow:"visible", position:"relative", zIndex:1,
-                 width:"100%", height:"auto", maxWidth: size }}
+                 width:"100%", height:"auto" }}
       >
         {wheel.map((seg, index) => {
           /* midDeg: centre angle of this slice in our "0°=top, CW" system */
