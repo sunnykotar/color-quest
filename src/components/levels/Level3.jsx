@@ -116,8 +116,8 @@ export default function Level3({ onComplete, addPoints, hardMode = false }) {
   /* ── Pair preview panel ──────────────────────────────────────────── */
   const PreviewPanel = () => (
     <div style={{
-      background:"rgba(255,255,255,0.60)", backdropFilter:"blur(10px)",
-      border:"1.5px solid rgba(255,255,255,0.55)", borderRadius:14,
+      background:"rgba(255,255,255,0.95)", backdropFilter:"blur(10px)",
+      border:"1.5px solid rgba(79,123,255,0.15)", borderRadius:14,
       padding:"12px 14px",
     }}>
       <div style={{ fontSize:11, fontWeight:800, color:"var(--text-muted)", letterSpacing:"0.07em", textTransform:"uppercase", marginBottom:8 }}>

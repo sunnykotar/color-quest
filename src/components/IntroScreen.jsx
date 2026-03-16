@@ -15,10 +15,10 @@ export default function IntroScreen({ onEnter }) {
     }}>
       {/* Soft frosted panel */}
       <div className="anim-fade intro-panel" style={{
-        background: "rgba(255,255,255,0.78)",
+        background: "rgba(255,255,255,0.97)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
-        border: "1.5px solid rgba(255,255,255,0.65)",
+        border: "1.5px solid rgba(79,123,255,0.18)",
         borderRadius: 32,
         boxShadow: "0 24px 64px rgba(0,0,0,0.10)",
         padding: "clamp(28px, 6vw, 52px) clamp(20px, 7vw, 64px)",

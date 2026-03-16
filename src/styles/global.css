@@ -93,12 +93,12 @@ body {
 
 /* ── Frosted-glass card ─────────────────────────────────────────────── */
 .glass-card {
-  background: var(--glass);
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1.5px solid var(--glass-border);
+  border: 1.5px solid rgba(79,123,255,0.15);
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(79,123,255,0.10);
+  box-shadow: 0 4px 24px rgba(79,123,255,0.10), 0 1px 4px rgba(0,0,0,0.06);
 }
 
 /* ── GameLayout: two-column desktop grid ───────────────────────────── */

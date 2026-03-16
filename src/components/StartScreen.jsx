@@ -65,14 +65,14 @@ function ModeCard({ card, onStart }) {
         padding: "18px 20px",
         borderRadius: 20,
         background: hov
-          ? `linear-gradient(135deg,${card.accent}16,${card.accent}08)`
-          : "rgba(255,255,255,0.65)",
+          ? `linear-gradient(135deg,${card.accent}18,${card.accent}0c)`
+          : "rgba(255,255,255,0.97)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
-        border: `1.5px solid ${hov ? card.accent + "55" : "rgba(255,255,255,0.60)"}`,
+        border: `1.5px solid ${hov ? card.accent + "55" : "rgba(79,123,255,0.15)"}`,
         boxShadow: hov
-          ? `0 10px 36px ${card.accent}22, 0 2px 8px rgba(0,0,0,0.05)`
-          : "0 2px 12px rgba(0,0,0,0.05)",
+          ? `0 10px 36px ${card.accent}22, 0 2px 8px rgba(79,123,255,0.12)`
+          : "0 2px 12px rgba(79,123,255,0.10), 0 1px 3px rgba(0,0,0,0.06)",
         cursor: "pointer", textAlign: "left",
         transform: hov ? "translateY(-3px) scale(1.01)" : "none",
         transition: "all 0.18s ease",
@@ -133,10 +133,10 @@ export default function StartScreen({ onStart, bestScore = 0, hardUnlocked = fal
       <div style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "14px clamp(12px, 4vw, 40px)",
-        background: "rgba(255,255,255,0.55)",
+        background: "rgba(255,255,255,0.92)",
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
-        borderBottom: "1px solid rgba(255,255,255,0.45)",
+        borderBottom: "1px solid rgba(79,123,255,0.18)",
         flexShrink: 0,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>

@@ -88,23 +88,23 @@ function AnswerBtn({ label, onClick, state }) {
   const bg =
     state === "correct" ? "linear-gradient(135deg,#10b981,#34d399)" :
     state === "wrong"   ? "linear-gradient(135deg,#ef4444,#f87171)" :
-    "rgba(255,255,255,0.70)";
+    "rgba(255,255,255,0.97)";
   const textCol = state ? "white" : "var(--text)";
 
   return (
     <button onClick={onClick} style={{
       display:"flex", alignItems:"center", gap:10,
       padding:"12px 16px", borderRadius:14,
-      background: bg, border:"1.5px solid rgba(255,255,255,0.55)",
+      background: bg, border:`1.5px solid ${state ? "transparent" : "rgba(79,123,255,0.18)"}`,
       backdropFilter:"blur(8px)",
       fontFamily:"var(--font-body)", fontWeight:700, fontSize:14,
       color: textCol, cursor:"pointer",
-      boxShadow:"0 3px 12px rgba(0,0,0,0.07)",
-      transition:"transform 0.12s, box-shadow 0.12s",
+      boxShadow:"0 3px 12px rgba(79,123,255,0.10), 0 1px 3px rgba(0,0,0,0.05)",
+      transition:"transform 0.12s, box-shadow 0.12s, background 0.12s",
       width:"100%", textAlign:"left",
     }}
-      onMouseEnter={e => { if (!state) { e.currentTarget.style.transform="scale(1.02)"; e.currentTarget.style.boxShadow="0 6px 20px rgba(0,0,0,0.12)"; }}}
-      onMouseLeave={e => { e.currentTarget.style.transform="scale(1)"; e.currentTarget.style.boxShadow="0 3px 12px rgba(0,0,0,0.07)"; }}
+      onMouseEnter={e => { if (!state) { e.currentTarget.style.transform="scale(1.02)"; e.currentTarget.style.background="rgba(240,235,255,0.97)"; e.currentTarget.style.boxShadow="0 6px 20px rgba(99,102,241,0.18)"; }}}
+      onMouseLeave={e => { if (!state) { e.currentTarget.style.transform="scale(1)"; e.currentTarget.style.background="rgba(255,255,255,0.97)"; e.currentTarget.style.boxShadow="0 3px 12px rgba(79,123,255,0.10)"; }}}
     >
       <span style={{ fontSize:18 }}>{meta.icon}</span>
       <div>

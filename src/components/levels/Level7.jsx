@@ -166,9 +166,9 @@ export default function Level7({ onComplete, addPoints }) {
       {/* Scheme badge */}
       <div style={{
         display:"flex", alignItems:"center", gap:8,
-        background:"rgba(255,255,255,0.60)", backdropFilter:"blur(8px)",
+        background:"rgba(255,255,255,0.95)", backdropFilter:"blur(8px)",
         borderRadius:12, padding:"10px 14px",
-        border:"1.5px solid rgba(255,255,255,0.55)",
+        border:"1.5px solid rgba(79,123,255,0.15)",
       }}>
         <span style={{ fontSize:20 }}>🎨</span>
         <div>
@@ -242,9 +242,9 @@ export default function Level7({ onComplete, addPoints }) {
           <div style={{
             fontFamily:"var(--font-display)", fontSize:20, fontWeight:700,
             color:"var(--text)", textAlign:"center",
-            background:"rgba(255,255,255,0.60)", backdropFilter:"blur(8px)",
+            background:"rgba(255,255,255,0.95)", backdropFilter:"blur(8px)",
             padding:"10px 28px", borderRadius:99,
-            border:"1.5px solid rgba(255,255,255,0.55)",
+            border:"1.5px solid rgba(79,123,255,0.15)",
           }}>
             Which color breaks the palette? 🧩
           </div>

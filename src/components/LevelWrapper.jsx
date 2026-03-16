@@ -49,10 +49,10 @@ export default function LevelWrapper({
       backdropFilter:"blur(2px)",
     }}>
       <div style={{
-        background:"rgba(255,255,255,0.82)",
+        background:"rgba(255,255,255,0.97)",
         backdropFilter:"blur(16px)",
         WebkitBackdropFilter:"blur(16px)",
-        border:"1.5px solid rgba(255,255,255,0.65)",
+        border:"1.5px solid rgba(79,123,255,0.18)",
         borderRadius:28,
         boxShadow:"0 20px 60px rgba(0,0,0,0.12)",
         padding:"clamp(24px, 5vw, 40px) clamp(20px, 6vw, 52px)",

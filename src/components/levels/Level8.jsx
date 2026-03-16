@@ -111,26 +111,26 @@ function SchemeBtn({ label, onClick, state, disabled }) {
   const bg =
     state === "correct" ? "linear-gradient(135deg,#10b981,#34d399)" :
     state === "wrong"   ? "linear-gradient(135deg,#ef4444,#f87171)" :
-                          "rgba(255,255,255,0.72)";
+                          "rgba(255,255,255,0.97)";
   return (
     <button
       onClick={() => !disabled && onClick(label)}
       style={{
         display:"flex", alignItems:"center", gap:12,
         padding:"13px 18px", borderRadius:14, width:"100%", textAlign:"left",
-        background:bg, border:"1.5px solid rgba(255,255,255,0.55)",
+        background:bg, border:`1.5px solid ${state ? "transparent" : "rgba(79,123,255,0.18)"}`,
         backdropFilter:"blur(10px)",
         fontFamily:"var(--font-body)", fontWeight:700, fontSize:15,
         color: state ? "white" : "var(--text)",
         cursor: disabled ? "default" : "pointer",
         boxShadow: state === "correct" ? "0 4px 18px rgba(16,185,129,0.35)"
                  : state === "wrong"   ? "0 4px 18px rgba(239,68,68,0.25)"
-                 : "0 2px 10px rgba(0,0,0,0.06)",
-        transition:"transform 0.12s, box-shadow 0.12s",
+                 : "0 2px 12px rgba(79,123,255,0.10), 0 1px 3px rgba(0,0,0,0.05)",
+        transition:"transform 0.12s, box-shadow 0.12s, background 0.12s",
         opacity: disabled && !state ? 0.7 : 1,
       }}
-      onMouseEnter={e => { if (!disabled && !state) { e.currentTarget.style.transform="scale(1.02)"; e.currentTarget.style.boxShadow="0 6px 20px rgba(0,0,0,0.12)"; }}}
-      onMouseLeave={e => { e.currentTarget.style.transform="scale(1)"; e.currentTarget.style.boxShadow=state?"":"0 2px 10px rgba(0,0,0,0.06)"; }}
+      onMouseEnter={e => { if (!disabled && !state) { e.currentTarget.style.transform="scale(1.02)"; e.currentTarget.style.background="rgba(240,235,255,0.97)"; e.currentTarget.style.boxShadow="0 6px 20px rgba(99,102,241,0.18)"; }}}
+      onMouseLeave={e => { if (!disabled && !state) { e.currentTarget.style.transform="scale(1)"; e.currentTarget.style.background="rgba(255,255,255,0.97)"; e.currentTarget.style.boxShadow="0 2px 12px rgba(79,123,255,0.10)"; }}}
     >
       <span style={{ fontSize:22, flexShrink:0 }}>{meta.icon}</span>
       <div>
@@ -162,10 +162,10 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
 
   const round = ROUNDS[roundIdx];
 
-  /* ── waiting → flash: short delay so swatches render before countdown ── */
+  /* ── waiting → flash: show colors for 2 s before countdown begins ── */
   useEffect(() => {
     if (phase !== "waiting") return;
-    const id = setTimeout(() => setPhase("flash"), 600);
+    const id = setTimeout(() => setPhase("flash"), 2000);
     return () => clearTimeout(id);
   }, [phase, roundIdx]);
 
@@ -269,15 +269,15 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
 
       {/* Step instruction card */}
       <div style={{
-        background:"rgba(255,255,255,0.60)", backdropFilter:"blur(10px)",
-        border:"1.5px solid rgba(255,255,255,0.55)", borderRadius:14,
+        background:"rgba(255,255,255,0.95)", backdropFilter:"blur(10px)",
+        border:"1.5px solid rgba(79,123,255,0.15)", borderRadius:14,
         padding:"12px 16px",
       }}>
         {phase === "waiting" && (
           <>
-            <div style={{ fontWeight:800, fontSize:13, color:"#6366F1", marginBottom:4 }}>Step 1 of 2 — Memorise!</div>
+            <div style={{ fontWeight:800, fontSize:13, color:"#4F7BFF", marginBottom:4 }}>Step 1 of 2 — Memorise!</div>
             <div style={{ fontSize:13, color:"var(--text-muted)", lineHeight:1.6 }}>
-              Study these colors carefully — they'll disappear in a moment!
+              Study these colors! The countdown starts soon…
             </div>
           </>
         )}
@@ -356,9 +356,9 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
       <div style={{
         fontFamily:"var(--font-display)", fontSize:20, fontWeight:700,
         color:"var(--text)",
-        background:"rgba(255,255,255,0.62)", backdropFilter:"blur(8px)",
+        background:"rgba(255,255,255,0.95)", backdropFilter:"blur(8px)",
         padding:"10px 30px", borderRadius:99,
-        border:"1.5px solid rgba(255,255,255,0.55)",
+        border:"1.5px solid rgba(79,123,255,0.15)",
         textAlign:"center",
       }}>
         {(phase === "waiting" || phase === "flash") && "👀 Look carefully — remember these colors!"}
