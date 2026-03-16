@@ -340,6 +340,40 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
         {!hardMode && <span style={{ color:"#6366F1" }}> · No time limit — take your time!</span>}
       </div>
 
+      {/* Answer buttons — in sidebar so they always show on mobile too */}
+      {buttonsVisible && (
+        <div style={{ display:"flex", flexDirection:"column", gap:9 }}>
+          {SCHEMES.map(s => (
+            <SchemeBtn
+              key={s} label={s}
+              onClick={handleAnswer}
+              disabled={phase === "answered"}
+              state={
+                result && s === round.label ? "correct" :
+                result && s === chosen      ? "wrong"   : null
+              }
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Scheme reveal badge after answering */}
+      {phase === "answered" && (() => {
+        const meta = SCHEME_META[round.label];
+        return (
+          <div className="anim-pop" style={{
+            display:"flex", alignItems:"center", gap:10,
+            padding:"10px 24px", borderRadius:99,
+            background:`${meta.color}22`,
+            border:`2px solid ${meta.color}55`,
+            fontFamily:"var(--font-display)", fontSize:17, fontWeight:700,
+            color:meta.color,
+          }}>
+            {meta.icon} {round.label}
+          </div>
+        );
+      })()}
+
       {/* Next button */}
       {phase === "answered" && (
         <button className="anim-pop" onClick={handleNext} style={{
@@ -399,43 +433,9 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
           letterSpacing:"0.06em", textTransform:"uppercase",
           background:"rgba(0,0,0,0.12)", padding:"6px 18px", borderRadius:99,
         }}>
-          Colors hidden — pick from the buttons below
+          Colors hidden — check the left panel to answer
         </div>
       )}
-
-      {/* Answer buttons (question + answered phases) */}
-      {buttonsVisible && (
-        <div style={{ display:"flex", flexDirection:"column", gap:9, width:"100%" }}>
-          {SCHEMES.map(s => (
-            <SchemeBtn
-              key={s} label={s}
-              onClick={handleAnswer}
-              disabled={phase === "answered"}
-              state={
-                result && s === round.label ? "correct" :
-                result && s === chosen      ? "wrong"   : null
-              }
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Scheme reveal badge after answering */}
-      {phase === "answered" && (() => {
-        const meta = SCHEME_META[round.label];
-        return (
-          <div className="anim-pop" style={{
-            display:"flex", alignItems:"center", gap:10,
-            padding:"10px 24px", borderRadius:99,
-            background:`${meta.color}22`,
-            border:`2px solid ${meta.color}55`,
-            fontFamily:"var(--font-display)", fontSize:17, fontWeight:700,
-            color:meta.color,
-          }}>
-            {meta.icon} {round.label}
-          </div>
-        );
-      })()}
     </div>
   );
 

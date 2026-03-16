@@ -137,7 +137,7 @@ body {
   height: 100%;
   position: relative;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .wheel-container::before {
@@ -254,8 +254,22 @@ input[type="range"]::-webkit-slider-runnable-track { height: 10px; border-radius
   /* ── Wheel container becomes a natural-height flex box ── */
   .wheel-container {
     height: auto;
-    min-height: 260px;
+    min-height: 0;
     padding: 8px 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Force the SVG inside wheel-container to scale down on mobile */
+  .wheel-container svg {
+    width: min(320px, 90vw) !important;
+    height: min(320px, 90vw) !important;
+  }
+
+  /* Ensure the inline-flex wrapper div in ColorWheel also scales */
+  .wheel-container > div {
+    max-width: 100%;
+    width: min(320px, 90vw);
   }
 
   /* Shrink the glow blob so it doesn't cause overflow */
