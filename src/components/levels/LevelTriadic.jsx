@@ -52,6 +52,17 @@ export default function LevelTriadic({ onComplete, addPoints, hardMode = false }
   const sets     = hardMode ? TRIADIC_SETS_24 : TRIADIC_SETS_12;
   const ROUNDS   = sets.length;
 
+  // Shuffle once on mount so each playthrough uses a different order
+  // and the same combination never appears twice in a session
+  const [shuffledSets] = useState(() => {
+    const arr = [...sets];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  });
+
   const [roundIdx,   setRoundIdx]   = useState(0);
   const [selected,   setSelected]   = useState([]);   // hues picked so far
   const [flash,      setFlash]      = useState(null); // "correct"|"wrong"|null
@@ -61,6 +72,7 @@ export default function LevelTriadic({ onComplete, addPoints, hardMode = false }
   const [timerKey,   setTimerKey]   = useState(0);
   const [showStats,  setShowStats]  = useState(false);
   const [lastTriad,  setLastTriad]  = useState(null); // hues of last correct set
+  const [usedTriads, setUsedTriads] = useState([]);   // sorted hue keys already completed
 
   const correctRef = useRef(0);
   const totalRef   = useRef(0);
@@ -110,10 +122,22 @@ export default function LevelTriadic({ onComplete, addPoints, hardMode = false }
     timesRef.current.push((Date.now() - t0.current) / 1000);
 
     if (isTriadic(next, wheel)) {
+      // Check if this exact combination was already completed
+      const key = [...next].sort((a,b)=>a-b).join(",");
+      if (usedTriads.includes(key)) {
+        // Already found — treat as wrong to prevent cheating same combo
+        addPoints(-PEN);
+        setLevelScore(s => Math.max(0, s - PEN));
+        setWrongCount(w => w + 1);
+        setFlash("wrong");
+        setTimeout(() => resetRound(), 1200);
+        return;
+      }
       correctRef.current++;
       addPoints(PTS);
       setLevelScore(s => s + PTS);
       setLastTriad(next);
+      setUsedTriads(prev => [...prev, key]);
       setFlash("correct");
       setTimeout(() => {
         const np = pairsFound + 1;

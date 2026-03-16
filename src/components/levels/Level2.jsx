@@ -23,7 +23,7 @@ function isAnalogous4(hues, wheel) {
 export default function Level2({ onComplete, addPoints, hardMode = false }) {
   const wheel   = hardMode ? WHEEL_24 : WHEEL;
   const pickN   = hardMode ? 4 : 3;
-  const timerS  = hardMode ? 7 : 10;
+  const timerS  = hardMode ? 7 : 0;   // no timer in easy mode
   const checkFn = hardMode ? h => isAnalogous4(h, WHEEL_24) : h => isAnalogous(h);
 
   const [selectedSegs, setSelectedSegs] = useState([]);
@@ -158,10 +158,10 @@ export default function Level2({ onComplete, addPoints, hardMode = false }) {
       hardMode={hardMode}
       description={hardMode
         ? "On the 24-color wheel, pick 4 consecutive neighbors. You have 7 seconds per attempt."
-        : "Pick 3 colors that sit side-by-side on the wheel. Analogous palettes feel calm and harmonious. You have 10 seconds per attempt."}
+        : "Pick 3 colors that sit side-by-side on the wheel. Analogous palettes feel calm and harmonious. No timer — take your time!"}
       bullets={hardMode
         ? [`Select 4 consecutive segments`, "They must be perfectly adjacent — no gaps", `${timerS}s per attempt · −${PTS_PENALTY} pts if time runs out`]
-        : [`Select 3 side-by-side segments`, "Press Check to verify", `${timerS}s per attempt · −${PTS_PENALTY} pts if time runs out`]}
+        : [`Select 3 side-by-side segments`, "Press Check to verify", "No time limit — explore freely"]}
       timerSecs={timerS}
       timerKey={timerKey}
       onTimerExpire={handleTimerExpire}

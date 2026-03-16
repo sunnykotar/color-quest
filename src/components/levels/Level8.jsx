@@ -145,8 +145,9 @@ function SchemeBtn({ label, onClick, state, disabled }) {
 
 /* ── main component ────────────────────────────────────────────────── */
 export default function Level8({ onComplete, addPoints, hardMode = false }) {
-  /* phase: "flash" | "hiding" | "question" | "answered" */
-  const [phase,    setPhase]    = useState("flash");
+  /* phase: "waiting" | "flash" | "hiding" | "question" | "answered"
+     "waiting" = mounted but flash timer not yet started; swatches shown immediately */
+  const [phase,    setPhase]    = useState("waiting");
   const [roundIdx, setRoundIdx] = useState(0);
   const [chosen,   setChosen]   = useState(null);
   const [result,   setResult]   = useState(null);   // "correct" | "wrong"
@@ -160,6 +161,13 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
   const qTimerRef = useRef(null);
 
   const round = ROUNDS[roundIdx];
+
+  /* ── waiting → flash: short delay so swatches render before countdown ── */
+  useEffect(() => {
+    if (phase !== "waiting") return;
+    const id = setTimeout(() => setPhase("flash"), 600);
+    return () => clearTimeout(id);
+  }, [phase, roundIdx]);
 
   /* ── flash countdown via rAF ─────────────────────────────────────── */
   useEffect(() => {
@@ -212,12 +220,12 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
   const handleNext = () => {
     if (roundIdx + 1 >= ROUNDS.length) { onComplete(); return; }
     setRoundIdx(i => i + 1);
-    setChosen(null); setResult(null); setPhase("flash");
+    setChosen(null); setResult(null); setFlashMs(SHOW_MS); setPhase("waiting");
   };
 
   /* ── derived booleans ────────────────────────────────────────────── */
-  const swatchesVisible = phase === "flash" || phase === "answered";
-  const namesVisible    = phase === "flash" || phase === "answered";
+  const swatchesVisible = phase === "waiting" || phase === "flash" || phase === "answered";
+  const namesVisible    = phase === "waiting" || phase === "flash" || phase === "answered";
   const buttonsVisible  = phase === "question" || phase === "answered";
   const flashPct        = flashMs / SHOW_MS;
 
@@ -265,6 +273,14 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
         border:"1.5px solid rgba(255,255,255,0.55)", borderRadius:14,
         padding:"12px 16px",
       }}>
+        {phase === "waiting" && (
+          <>
+            <div style={{ fontWeight:800, fontSize:13, color:"#6366F1", marginBottom:4 }}>Step 1 of 2 — Memorise!</div>
+            <div style={{ fontSize:13, color:"var(--text-muted)", lineHeight:1.6 }}>
+              Study these colors carefully — they'll disappear in a moment!
+            </div>
+          </>
+        )}
         {phase === "flash" && (
           <>
             <div style={{ fontWeight:800, fontSize:13, color:"#6366F1", marginBottom:4 }}>Step 1 of 2 — Memorise!</div>
@@ -345,7 +361,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
         border:"1.5px solid rgba(255,255,255,0.55)",
         textAlign:"center",
       }}>
-        {phase === "flash"    && "👀 Look carefully — remember these colors!"}
+        {(phase === "waiting" || phase === "flash") && "👀 Look carefully — remember these colors!"}
         {phase === "hiding"   && "🫣 Colors hidden…"}
         {phase === "question" && "🤔 Which color scheme was shown?"}
         {phase === "answered" && (result === "correct" ? "✅ Correct!" : "❌ Not quite…")}
@@ -427,6 +443,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
       <GameLayout
         narratorTitle="Color Memory Challenge"
         narratorText={
+          phase === "waiting"  ? "Study the colors carefully — remember how they relate to each other!" :
           phase === "flash"    ? "Study the colors carefully — remember how they relate to each other!" :
           phase === "hiding"   ? "Hold the image in your mind…" :
           phase === "question" ? "What color scheme did you see? Analogous? Complementary? Triadic? Monochromatic?" :
