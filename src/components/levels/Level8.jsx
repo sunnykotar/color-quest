@@ -86,9 +86,9 @@ const ROUNDS = [
 /* ── sub-components ────────────────────────────────────────────────── */
 function Swatch({ hue, L, visible, name, showName }) {
   return (
-    <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:8 }}>
+    <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:6 }}>
       <div style={{
-        width:80, height:80, borderRadius:20,
+        width:72, height:72, borderRadius:16,
         background: visible ? `hsl(${hue},82%,${L}%)` : "rgba(255,255,255,0.18)",
         border:"2.5px solid rgba(255,255,255,0.55)",
         boxShadow: visible ? `0 6px 24px hsla(${hue},70%,${L}%,0.50)` : "none",
@@ -96,9 +96,9 @@ function Swatch({ hue, L, visible, name, showName }) {
         transition:"background 0.28s, transform 0.28s, box-shadow 0.28s",
       }} />
       <span style={{
-        fontSize:12, fontWeight:700, color:"var(--text-muted)",
+        fontSize:11, fontWeight:700, color:"var(--text-muted)",
         opacity: showName ? 1 : 0, transition:"opacity 0.2s",
-        textAlign:"center", minWidth:60,
+        textAlign:"center", minWidth:56,
       }}>
         {name}
       </span>
@@ -360,17 +360,18 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
     <div style={{
       display:"flex", flexDirection:"column",
       alignItems:"center", justifyContent:"center",
-      gap:32, width:"100%", maxWidth:500, margin:"0 auto",
+      gap:24, width:"100%", maxWidth:500, margin:"0 auto",
+      padding:"0 8px",
     }}>
 
       {/* Big phase heading */}
       <div style={{
-        fontFamily:"var(--font-display)", fontSize:20, fontWeight:700,
+        fontFamily:"var(--font-display)", fontSize:18, fontWeight:700,
         color:"var(--text)",
         background:"rgba(255,255,255,0.95)", backdropFilter:"blur(8px)",
-        padding:"10px 30px", borderRadius:99,
+        padding:"10px 20px", borderRadius:99,
         border:"1.5px solid rgba(79,123,255,0.15)",
-        textAlign:"center",
+        textAlign:"center", width:"100%",
       }}>
         {(phase === "waiting" || phase === "flash") && "👀 Look carefully — remember these colors!"}
         {phase === "hiding"   && "🫣 Colors hidden…"}
@@ -379,7 +380,7 @@ export default function Level8({ onComplete, addPoints, hardMode = false }) {
       </div>
 
       {/* Swatch display — always rendered, visibility toggled */}
-      <div style={{ display:"flex", gap:18, alignItems:"flex-end", minHeight:110 }}>
+      <div style={{ display:"flex", gap:12, alignItems:"center", justifyContent:"center", flexWrap:"wrap", width:"100%" }}>
         {round.swatches.map((sw, i) => (
           <Swatch
             key={i}
